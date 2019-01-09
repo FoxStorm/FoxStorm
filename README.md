@@ -4,12 +4,31 @@ TypeScript WEB API Framework
 
 ## Getting Started
 
+* Installation (WIP)
 * Routing
 * Controllers
 * Presenters
 * Decorators
 * Services
 * Logger
+
+## Installation
+
+### Server Requirements
+
+* Node >= 8
+
+### Installing FoxStorm (WIP)
+
+```bash
+  npm install -g foxstorm
+```
+
+Once installed `foxstorm` command will become available in your shell. For example, `foxstorm hello-world` will create a directory named `hello-world` and will contain a fresh `FoxStorm` installation with all of `FoxStorm` dependencies and configuration files.
+
+```bash
+  foxstorm hello-world
+```
 
 ## Routing
 
