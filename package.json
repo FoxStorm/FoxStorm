@@ -10,8 +10,17 @@
     "startserver": "npm run-s build && node dist/src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "bin": {
+    "foxstorm": "bin/commands/foxstorm.ts"
+  },
+  "keywords": [
+    "framework",
+    "api",
+    "controller",
+    "model",
+    "typescript"
+  ],
+  "author": "Sebastian - Corneliu Vîrlan",
   "license": "ISC",
   "devDependencies": {
     "@types/restify": "^7.2.7",
