@@ -1,0 +1,30 @@
+{
+  "name": "foxstorm",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "rm -rf dist && tsc",
+    "lint": "tslint --project ./ --exclude \"node_modules/*/**.ts\"",
+    "start": "nodemon --exec ts-node src/index.ts",
+    "startserver": "npm run-s build && node dist/src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/restify": "^7.2.7",
+    "restify": "^7.4.0",
+    "tslint": "^5.12.0",
+    "typescript": "^3.2.2",
+    "tslint-config-standard": "^8.0.1",
+    "tslint-immutable": "^5.0.1"
+  },
+  "dependencies": {
+    "@types/nodemailer": "^4.6.5",
+    "@types/stack-trace": "0.0.29",
+    "nodemailer": "^5.0.0",
+    "stack-trace": "0.0.10"
+  }
+}
