@@ -24,10 +24,10 @@ TypeScript WEB API Framework
   npm install -g foxstorm
 ```
 
-Once installed `foxstorm` command will become available in your shell. For example, `foxstorm hello-world` will create a directory named `hello-world` and will contain a fresh `FoxStorm` installation with all of `FoxStorm` dependencies and configuration files.
+Once installed `foxstorm` command will become available in your shell. For example, `foxstorm new hello-world` will create a directory named `hello-world` and will contain a fresh `FoxStorm` installation with all of `FoxStorm` dependencies and configuration files.
 
 ```bash
-  foxstorm hello-world
+  foxstorm new hello-world
 ```
 
 ## Routing
