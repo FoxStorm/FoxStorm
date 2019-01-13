@@ -23,6 +23,11 @@ export class Route {
     readonly controller: (req: Request, res: Response) => void | InvokableController
   ) {}
 
+  static root ( controller: (req: Request, res: Response) => void | InvokableController): Route {
+      const action = this.retrieveAction(controller)
+      return new this(RouteMethods.get, '/', action)
+  }
+
   static get (endpoint: string, controller: (req: Request, res: Response) => void | InvokableController): Route {
     const action = this.retrieveAction(controller)
     return new this(RouteMethods.get, endpoint, action)

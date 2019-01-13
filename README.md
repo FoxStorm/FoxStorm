@@ -80,6 +80,14 @@ You can also pass in a RegExp object and access the capture group with req.param
   Route.get(/^\/([a-zA-Z0-9_\.~-]+)\/(.*)/, callback)
 ```
 
+### Root Route
+
+You can specify what FoxStorm should route '/' to with the root method:
+
+```typescript
+  Route.root(callback)
+```
+
 ## Controllers
 
 * Introduction
