@@ -175,7 +175,7 @@ presenter does not know what properties your `object` has.
 
 Example of presenters:
 
-UserPresenter.ts
+_UserPresenter.ts_
 ```typescript
 import { BasePresenter } from 'foxstorm'
 
@@ -193,9 +193,9 @@ export class UserPresenter extends BasePresenter {
 }
 ````
 
-Using the presenter in controllers:
+Using the presenter in the controller:
 
-UsersController.ts
+_UsersController.ts_
 ```typescript
 import { UserPresenter } from '../../presenters/UserPresenter'
 
@@ -212,6 +212,48 @@ export class UsersController {
 ````
 
 ## Decorators
+
+The `Decorators` pattern works in exactly the same way as the `Presenters`, but instead keeping view / presenting logic
+they keep business logic.
+
+_UserWorkDecorator.ts_
+```typescript
+import { BaseDecorator } from 'foxstorm'
+
+export class UserWorkDecorator extends BaseDecorator {
+  constructor (user: User) {
+    super(user)
+  }
+    
+  startWork () {
+    // logic code
+  }
+  
+  finishWork () {
+    // logic code
+  }
+}
+````
+
+Using the decorator in the controller:
+
+_UsersController.ts_
+```typescript
+import { UserWorkDecorator } from '../../decorators/UserWorkDecorator'
+import { UserPresenter } from '../../presenters/UserPresenter'
+
+export class UsersController {
+  startWork(req: Request, res: Response) {
+    const user = User.find(req.params.id)
+    const presentedUser = new UserPresenter(user)
+    const userWorkDecorator = new UserWorkDecorator(user)
+
+    userWorkDecorator.startWork()
+
+    return res.send({ success: `${presentedUser.fullName()} started working!`})
+  }
+}
+````
 
 ## Services
 
