@@ -158,6 +158,59 @@ export const ROUTES: Route[] = [
 
 ## Presenters
 
+If your models contains methods that are used only in views or part as the JSON values in an API response, it might be
+a good time to refactor them. `Presenters` is a design pattern that usually refers to Model View Presenter (MVP).
+It retrieves data from repositories (the model), and formats it for display in the view / JSON response.
+In FoxStorm the Presenters are located in the `presenters` folder.
+
+### How does presenter works in FoxStorm?
+
+By creating a new class in the `presenters` folder, and passing an object in the
+constructor, the presenter will inherit all the properties and the methods that the initial object have. For the magic
+to be happening, the presenter class needs to extend from the `BasePresenter` class, and call `super(object)` in your
+constructor. Under the hood, the `BasePresenter` class is copying the properties and the methods that `object` has.
+Because TypeScript is a typed language that compiles to Javascript, in your presenter you will need to declare the
+properties that you want to access from the initial object, otherwise you will get compiling error, because your
+presenter does not know what properties your `object` has.
+
+Example of presenters:
+
+UserPresenter.ts
+```typescript
+import { BasePresenter } from 'foxstorm'
+
+export class UserPresenter extends BasePresenter {
+  public firstName!: string
+  public lastName!: string
+    
+  constructor (user: User) {
+    super(user)
+  }
+    
+  fullName () {
+    return `${this.firstName} ${this.lastName}`
+  }
+}
+````
+
+Using the presenter in controllers:
+
+UsersController.ts
+```typescript
+import { UserPresenter } from '../../presenters/UserPresenter'
+
+export class UsersController {
+  show(req: Request, res: Response) {
+    const user = User.find(req.params.id)
+    const presentedUser = new UserPresenter(user)
+
+    console.log(presentedUser.fullName())
+
+    return res.send(presentedUser)
+  }
+}
+````
+
 ## Decorators
 
 ## Services
