@@ -1,6 +1,8 @@
-# FoxStorm
+<p align="center">
+  <img src="https://i.imgur.com/2EmQNvF.png" alt="FoxStorm Typescript WEB Framework" width="190" />
+</p>
 
-TypeScript WEB API Framework
+FoxStorm is a TypeScript Framework that provides a foundation for building your API / Website.
 
 ## Getting Started
 
@@ -9,6 +11,7 @@ TypeScript WEB API Framework
 * Controllers
 * Presenters
 * Decorators
+* Models
 * Services
 * Logger
 
