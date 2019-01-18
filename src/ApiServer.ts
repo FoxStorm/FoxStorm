@@ -1,5 +1,5 @@
 import * as restify from 'restify'
-import { Route } from './Route'
+import { Route } from './Routing/Route'
 import { HttpConfig } from './HttpConfig'
 
 export interface Request extends restify.Request {}

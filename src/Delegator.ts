@@ -1,4 +1,4 @@
-export class Abstract {
+export class Delegator {
   constructor (object: any) {
     this.applyMixins(this.constructor, object.constructor)
     this.applyProperties(object)

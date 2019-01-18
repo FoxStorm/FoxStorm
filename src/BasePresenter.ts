@@ -1,3 +1,3 @@
-import { Abstract } from './Abstract'
+import { Delegator } from './Delegator'
 
-export class BasePresenter extends Abstract { }
+export class BasePresenter extends Delegator { }
