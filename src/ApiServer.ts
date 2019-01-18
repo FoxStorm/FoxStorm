@@ -33,7 +33,7 @@ export class ApiServer {
   }
 
   private addRoute (route: Route): void {
-    const requestHandler: restify.RequestHandler = route.controllerAction
+    const requestHandler: restify.RequestHandler = route.controller
 
     this.restify[route.method](route.endpoint, async (req, res, next) => {
       try {
