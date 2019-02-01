@@ -25,22 +25,20 @@
   "author": "Sebastian - Corneliu Vîrlan",
   "license": "ISC",
   "devDependencies": {
-    "@types/restify": "^7.2.7",
     "@types/fs-extra": "^5.0.4",
-    "@types/nodemailer": "^4.6.5",
     "@types/stack-trace": "0.0.29",
-    "@types/yargs": "^12.0.5",
     "tslint": "^5.12.0",
     "typescript": "^3.2.2",
     "tslint-config-standard": "^8.0.1",
     "tslint-immutable": "^5.0.1"
   },
   "dependencies": {
-    "restify": "^7.4.0",
+    "foxstorm-container": "git+https://git@github.com/FoxStorm/container.git",
+    "foxstorm-debuggable": "git+https://git@github.com/FoxStorm/debuggable.git",
+    "foxstorm-logger": "git+https://git@github.com/FoxStorm/logger.git",
+    "foxstorm-routing": "git+https://git@github.com/FoxStorm/routing.git",
+    "foxstorm-server": "git+https://git@github.com/FoxStorm/server.git",
     "fs-extra": "^7.0.1",
-    "nodemailer": "^5.0.0",
-    "stack-trace": "0.0.10",
-    "yargs": "^12.0.5",
-    "foxstorm-container": "git+https://git@github.com/FoxStorm/container.git"
+    "stack-trace": "0.0.10"
   }
 }
