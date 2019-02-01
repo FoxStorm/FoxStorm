@@ -1,6 +1,4 @@
-import { Debug } from './debugging/Debug'
-import { Debuggable } from './debugging/Debuggable'
-import { SourceLocation } from './debugging/SourceLocation'
+import { Debuggable, Debug, SourceLocation } from 'foxstorm-debuggable'
 
 export class FrameworkError extends Debuggable implements Debug {
   public readonly readableName = 'Framework Error'
