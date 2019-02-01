@@ -1,1 +1,0 @@
-{"version":3,"file":"generate.js","sourceRoot":"","sources":["../../../../bin/commands/foxstorm/generate.ts"],"names":[],"mappings":";;AAAa,QAAA,QAAQ,GAAG;IACtB,OAAO,EAAE,UAAU;IACnB,QAAQ,EAAE,gBAAgB;IAC1B,OAAO,EAAE,CAAC,IAAS,EAAE,EAAE;QACrB,OAAO,CAAC,GAAG,CAAC,UAAU,CAAC,CAAA;IACzB,CAAC;CACF,CAAA"}

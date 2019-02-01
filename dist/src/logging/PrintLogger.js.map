@@ -1,1 +1,0 @@
-{"version":3,"file":"PrintLogger.js","sourceRoot":"","sources":["../../../src/logging/PrintLogger.ts"],"names":[],"mappings":";;AAGA,MAAa,WAAW;IACtB,GAAG,CAAE,GAAW,EAAE,KAAe,EAAE,IAAY,EAAE,IAAY,EAAE,IAAY,EAAE,MAAc;QACzF,OAAO,CAAC,GAAG,CAAC,KAAK,KAAK,MAAM,GAAG,KAAK,IAAI,IAAI,IAAI,IAAI,IAAI,IAAI,MAAM,GAAG,CAAC,CAAA;IACxE,CAAC;CACF;AAJD,kCAIC"}
