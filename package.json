@@ -4,16 +4,11 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc && npm run-s createTemplateDir && npm run-s copyTemplate",
-    "createTemplateDir": "mkdir -p dist/bin/commands/foxstorm/new",
-    "copyTemplate": "cp -r bin/commands/foxstorm/new/templates dist/bin/commands/foxstorm/new",
+    "build": "tsc",
     "lint": "tslint --project ./ --exclude \"node_modules/*/**.ts\"",
     "start": "nodemon --exec ts-node src/index.ts",
     "startserver": "npm run-s build && node dist/src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "bin": {
-    "foxstorm": "bin/commands/foxstorm.ts"
   },
   "keywords": [
     "framework",
