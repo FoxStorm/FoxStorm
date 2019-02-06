@@ -5,10 +5,13 @@ import { FoxStormRouter } from '../router/FoxStormRouter'
 export class FoxStormServer extends ApplicationServer {
   static makeService (container: FoxStormApplication) {
     const router = container.retrieveServiceFor('Router') as FoxStormRouter
-    const logger = container.retrieveServiceFor('Logger')
-    return new this(router, logger)
+    const server = new FoxStormServer(router)
+    server.setViewEngine('ejs')
+
+    return server
   }
-  constructor (readonly router: FoxStormRouter, readonly logger: any) {
+
+  constructor (readonly router: FoxStormRouter) {
     super()
   }
 

@@ -11,17 +11,8 @@ export class FoxStormServices extends Services {
       return new Logger()
     })
 
-    services.registerServiceWithInterfaceAndFactory(FoxStormRouter, 'Router', (container) => {
-      const logger = container.retrieveServiceFor('Logger') as Logger
-      return new FoxStormRouter(logger.print)
-    })
-
-    services.registerServiceWithInterfaceAndFactory(FoxStormServer, 'Server', (container) => {
-      const router = container.retrieveServiceFor('Router') as FoxStormRouter
-      const logger = container.retrieveServiceFor('Logger') as Logger
-
-      return new FoxStormServer(router, logger)
-    })
+    services.registerServiceWithInterface(FoxStormRouter, 'Router')
+    services.registerServiceWithInterface(FoxStormServer, 'Server')
 
     return services
   }
