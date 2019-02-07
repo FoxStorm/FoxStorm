@@ -1,6 +1,5 @@
 import { FoxStormServer } from 'foxstorm-server'
 import { Routing } from 'foxstorm-routing'
-import { FoxStormApplication } from '../../core/FoxStormApplication'
 
 export class Server extends FoxStormServer {
   static readonly TEMPLATE_ENGINE = 'ejs'

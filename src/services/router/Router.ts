@@ -1,3 +1,3 @@
-import { FoxStormRouter, Routing } from 'foxstorm-routing'
+import { FoxStormRouter } from 'foxstorm-routing'
 
 export class Router extends FoxStormRouter {}

@@ -1,7 +1,5 @@
 import { Services } from 'foxstorm-container'
-import { PrintLogger, Printer } from '../services/logger/PrintLog'
-import { Server } from '../services/server/Server'
-import { Router } from '../services/router/Router'
+import { PrintLogger } from '../services/logger/PrintLogger'
 
 export class FoxStormServices extends Services {
   static default () {
