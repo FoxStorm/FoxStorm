@@ -11,14 +11,6 @@ export class FoxStormServices extends Services {
       return new PrintLogger()
     })
 
-    services.registerServiceWithInterfaceAndFactory(Router, Router.name, (container) => {
-      const logger = container.retrieveServiceFor('PrintLogger') as Printer
-      const router = new Router(logger.print)
-
-      return router
-    })
-    services.registerServiceWithInterface(Server, Server.name)
-
     return services
   }
 }
