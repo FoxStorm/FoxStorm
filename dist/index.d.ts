@@ -6,3 +6,5 @@ export { BaseController } from './src/BaseController';
 export { BaseDecorator } from './src/BaseDecorator';
 export { BasePresenter } from './src/BasePresenter';
 export { Request, Response } from 'foxstorm-routing';
+export { Server } from './src/services/server/Server';
+export { Router } from './src/services/router/Router';

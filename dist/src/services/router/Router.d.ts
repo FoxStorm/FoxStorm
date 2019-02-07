@@ -1,5 +1,3 @@
-import { FoxStormRouter, Routing } from 'foxstorm-routing';
-import { ApplicationContainer } from 'foxstorm-container';
+import { FoxStormRouter } from 'foxstorm-routing';
 export declare class Router extends FoxStormRouter {
-    static makeService(container: ApplicationContainer): Routing;
 }
