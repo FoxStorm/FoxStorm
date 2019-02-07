@@ -1,8 +1,8 @@
-import { PrintLogger, Logging } from 'foxstorm-logger';
+import { PrintLogger as FoxStormPrintLogger, Logging } from 'foxstorm-logger';
 export interface Printer extends Logging {
     print(str: string): void;
 }
-export declare class PrintLog extends PrintLogger implements Printer {
+export declare class PrintLogger extends FoxStormPrintLogger implements Printer {
     verbose(str: string): void;
     debug(str: string): void;
     info(str: string): void;

@@ -7,11 +7,11 @@ const Router_1 = require("../services/router/Router");
 class FoxStormServices extends foxstorm_container_1.Services {
     static default() {
         const services = new this();
-        services.registerServiceWithFactory(PrintLog_1.PrintLog, () => {
-            return new PrintLog_1.PrintLog();
+        services.registerServiceWithFactory(PrintLog_1.PrintLogger, () => {
+            return new PrintLog_1.PrintLogger();
         });
         services.registerServiceWithInterfaceAndFactory(Router_1.Router, Router_1.Router.name, (container) => {
-            const logger = container.retrieveServiceFor('Logger');
+            const logger = container.retrieveServiceFor('PrintLogger');
             const router = new Router_1.Router(logger.print);
             return router;
         });
