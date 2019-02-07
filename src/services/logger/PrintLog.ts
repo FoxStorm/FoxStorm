@@ -1,11 +1,11 @@
-import { PrintLogger, Logging, LogLevel } from 'foxstorm-logger'
+import { PrintLogger as FoxStormPrintLogger, Logging, LogLevel } from 'foxstorm-logger'
 import { StackFrame } from '../../StackFrame'
 
 export interface Printer extends Logging {
   print (str: string): void
 }
 
-export class PrintLog extends PrintLogger implements Printer {
+export class PrintLogger extends FoxStormPrintLogger implements Printer {
   verbose (str: string): void {
     const { file, func, line, column } = StackFrame.get()
     this.log(str, LogLevel.verbose, file, func, line, column)
@@ -32,6 +32,6 @@ export class PrintLog extends PrintLogger implements Printer {
   }
 
   print (str: string): void {
-    PrintLog.printLogger(str)
+    PrintLogger.printLogger(str)
   }
 }
