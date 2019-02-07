@@ -5,14 +5,6 @@ import { FoxStormApplication } from '../../core/FoxStormApplication'
 export class Server extends FoxStormServer {
   static readonly TEMPLATE_ENGINE = 'ejs'
 
-  static makeService (container: FoxStormApplication) {
-    const router = container.retrieveServiceFor('Router') as Routing
-    const server = new Server(router)
-    server.setViewEngine(Server.TEMPLATE_ENGINE)
-
-    return server
-  }
-
   constructor (readonly router: Routing) {
     super()
   }
