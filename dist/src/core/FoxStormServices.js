@@ -1,12 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const foxstorm_container_1 = require("foxstorm-container");
-const PrintLog_1 = require("../services/logger/PrintLog");
+const PrintLogger_1 = require("../services/logger/PrintLogger");
 class FoxStormServices extends foxstorm_container_1.Services {
     static default() {
         const services = new this();
-        services.registerServiceWithFactory(PrintLog_1.PrintLogger, () => {
-            return new PrintLog_1.PrintLogger();
+        services.registerServiceWithFactory(PrintLogger_1.PrintLogger, () => {
+            return new PrintLogger_1.PrintLogger();
         });
         return services;
     }

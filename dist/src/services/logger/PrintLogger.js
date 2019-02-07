@@ -28,4 +28,4 @@ class PrintLogger extends foxstorm_logger_1.PrintLogger {
     }
 }
 exports.PrintLogger = PrintLogger;
-//# sourceMappingURL=PrintLog.js.map
+//# sourceMappingURL=PrintLogger.js.map
