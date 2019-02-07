@@ -1,33 +1,37 @@
-import { Logging, PrintLogger, LogLevel } from 'foxstorm-logger'
+import { PrintLogger, Logging, LogLevel } from 'foxstorm-logger'
 import { StackFrame } from '../../StackFrame'
 
-export class Logger extends PrintLogger implements Logging {
-  verbose (str: string) {
+export interface Printer extends Logging {
+  print (str: string): void
+}
+
+export class PrintLog extends PrintLogger implements Printer {
+  verbose (str: string): void {
     const { file, func, line, column } = StackFrame.get()
     this.log(str, LogLevel.verbose, file, func, line, column)
   }
 
-  debug (str: string) {
+  debug (str: string): void {
     const { file, func, line, column } = StackFrame.get()
     this.log(str, LogLevel.debug, file, func, line, column)
   }
 
-  info (str: string) {
+  info (str: string): void {
     const { file, func, line, column } = StackFrame.get()
     this.log(str, LogLevel.info, file, func, line, column)
   }
 
-  warning (str: string) {
+  warning (str: string): void {
     const { file, func, line, column } = StackFrame.get()
     this.log(str, LogLevel.warning, file, func, line, column)
   }
 
-  error (str: string) {
+  error (str: string): void {
     const { file, func, line, column } = StackFrame.get()
     this.log(str, LogLevel.error, file, func, line, column)
   }
 
-  print (str: string) {
-    Logger.printLogger(str)
+  print (str: string): void {
+    PrintLog.printLogger(str)
   }
 }

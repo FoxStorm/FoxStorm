@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const foxstorm_logger_1 = require("foxstorm-logger");
 const StackFrame_1 = require("../../StackFrame");
-class Logger extends foxstorm_logger_1.PrintLogger {
+class PrintLog extends foxstorm_logger_1.PrintLogger {
     verbose(str) {
         const { file, func, line, column } = StackFrame_1.StackFrame.get();
         this.log(str, foxstorm_logger_1.LogLevel.verbose, file, func, line, column);
@@ -24,8 +24,8 @@ class Logger extends foxstorm_logger_1.PrintLogger {
         this.log(str, foxstorm_logger_1.LogLevel.error, file, func, line, column);
     }
     print(str) {
-        Logger.printLogger(str);
+        PrintLog.printLogger(str);
     }
 }
-exports.Logger = Logger;
-//# sourceMappingURL=Logger.js.map
+exports.PrintLog = PrintLog;
+//# sourceMappingURL=PrintLog.js.map

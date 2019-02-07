@@ -1,18 +1,23 @@
 import { Services } from 'foxstorm-container'
-import { Logger } from '../services/logger/Logger'
-import { FoxStormServer } from '../services/server/FoxStormServer'
-import { FoxStormRouter } from '../services/router/FoxStormRouter'
+import { PrintLog, Printer } from '../services/logger/PrintLog'
+import { Server } from '../services/server/Server'
+import { Router } from '../services/router/Router'
 
 export class FoxStormServices extends Services {
   static default () {
     const services = new this()
 
-    services.registerServiceWithFactory(Logger, () => {
-      return new Logger()
+    services.registerServiceWithFactory(PrintLog, () => {
+      return new PrintLog()
     })
 
-    services.registerServiceWithInterface(FoxStormRouter, 'Router')
-    services.registerServiceWithInterface(FoxStormServer, 'Server')
+    services.registerServiceWithInterfaceAndFactory(Router, Router.name, (container) => {
+      const logger = container.retrieveServiceFor('Logger') as Printer
+      const router = new Router(logger.print)
+
+      return router
+    })
+    services.registerServiceWithInterface(Server, Server.name)
 
     return services
   }

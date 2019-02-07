@@ -1,8 +1,8 @@
-import { Logger } from 'foxstorm-logger'
+import { PrintLogger } from 'foxstorm-logger'
 import { FrameworkError } from '../../FrameworkError'
 import { StackFrame } from '../../StackFrame'
 
-export class ErrorLogger extends Logger {
+export class ErrorLogger extends PrintLogger {
   report (e: FrameworkError, verbose: boolean = false) {
     const sourceLocation = e.sourceLocation
     const { file, func, line, column } = StackFrame.get()

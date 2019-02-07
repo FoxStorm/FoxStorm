@@ -1,24 +1,21 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const foxstorm_container_1 = require("foxstorm-container");
-const Logger_1 = require("../services/logger/Logger");
-const FoxStormServer_1 = require("../services/server/FoxStormServer");
-const FoxStormRouter_1 = require("../services/router/FoxStormRouter");
+const PrintLog_1 = require("../services/logger/PrintLog");
+const Server_1 = require("../services/server/Server");
+const Router_1 = require("../services/router/Router");
 class FoxStormServices extends foxstorm_container_1.Services {
     static default() {
         const services = new this();
-        services.registerServiceWithFactory(Logger_1.Logger, () => {
-            return new Logger_1.Logger();
+        services.registerServiceWithFactory(PrintLog_1.PrintLog, () => {
+            return new PrintLog_1.PrintLog();
         });
-        services.registerServiceWithInterfaceAndFactory(FoxStormRouter_1.FoxStormRouter, 'Router', (container) => {
+        services.registerServiceWithInterfaceAndFactory(Router_1.Router, Router_1.Router.name, (container) => {
             const logger = container.retrieveServiceFor('Logger');
-            return new FoxStormRouter_1.FoxStormRouter(logger.print);
+            const router = new Router_1.Router(logger.print);
+            return router;
         });
-        services.registerServiceWithInterfaceAndFactory(FoxStormServer_1.FoxStormServer, 'Server', (container) => {
-            const router = container.retrieveServiceFor('Router');
-            const logger = container.retrieveServiceFor('Logger');
-            return new FoxStormServer_1.FoxStormServer(router, logger);
-        });
+        services.registerServiceWithInterface(Server_1.Server, Server_1.Server.name);
         return services;
     }
 }
