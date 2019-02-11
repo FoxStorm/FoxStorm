@@ -63,7 +63,9 @@ then initialize the controller:
 and for that route to be registered, it needs to be added in the routes `ROUTES: Route[]` array that is provided in the routes file
 
 ```typescript
-  export const ROUTES: Route[] = [
+  import { Router } from 'foxstorm'
+
+  export const routes = (router: Router): void => {
     Route.get('/users', usersController.index),
     Route.post('/users/', usersController.create)
   ]
@@ -160,10 +162,10 @@ Or can be generated quickly using this FoxStorm command:
 For this case in the routes you don't need to specify an action:
 
 ```typescript
-import { Route, __invoke } from 'foxstorm'
+import { Router, __invoke } from 'foxstorm'
 import { ShowProfile } from './controllers/ShowProfile'
 
-export const ROUTES: Route[] = [
+export const routes = (router: Router): void => {
   Route.get('/show-profile', __invoke(ShowProfile))
 ]
 ```
@@ -188,6 +190,7 @@ presenter does not know what properties your `object` has.
 Example of presenters:
 
 _UserPresenter.ts_
+
 ```typescript
 import { BasePresenter } from 'foxstorm'
 
@@ -208,6 +211,7 @@ export class UserPresenter extends BasePresenter {
 Using the presenter in the controller:
 
 _UsersController.ts_
+
 ```typescript
 import { UserPresenter } from '../../presenters/UserPresenter'
 
