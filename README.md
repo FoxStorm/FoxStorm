@@ -21,17 +21,26 @@ FoxStorm is a TypeScript Framework that provides a foundation for building your 
 
 * Node >= 8
 
-### Installing FoxStorm (WIP)
+### Installing FoxStorm
 
-```bash
-  npm install -g foxstorm
-```
+1. Install FoxStorm CLI:
 
-Once installed `foxstorm` command will become available in your shell. For example, `foxstorm new hello-world` will create a directory named `hello-world` and will contain a fresh `FoxStorm` installation with all of `FoxStorm` dependencies and configuration files.
+    ```bash
+      npm install -g git+https://git@github.com/foxstorm/cli.git
+    ```
 
-```bash
-  foxstorm new hello-world
-```
+2. Once installed `foxstorm-cli` command will become available in your shell. For example, `foxstorm-cli new hello-world` will create a directory named `hello-world` and will contain a fresh `FoxStorm` installation with all of `FoxStorm` dependencies and configuration files.
+
+    ```bash
+      foxstorm-cli new hello-world
+    ```
+
+3. Go to the `hello-world` directory and start the server
+
+    ```bash
+      cd hello-world
+      npm run-s startServer
+    ```
 
 ## Routing
 
@@ -185,11 +194,11 @@ import { BasePresenter } from 'foxstorm'
 export class UserPresenter extends BasePresenter {
   public firstName!: string
   public lastName!: string
-    
+
   constructor (user: User) {
     super(user)
   }
-    
+
   fullName () {
     return `${this.firstName} ${this.lastName}`
   }
@@ -227,11 +236,11 @@ export class UserWorkDecorator extends BaseDecorator {
   constructor (user: User) {
     super(user)
   }
-    
+
   startWork () {
     // logic code
   }
-  
+
   finishWork () {
     // logic code
   }
