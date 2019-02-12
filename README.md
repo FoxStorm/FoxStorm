@@ -1,3 +1,5 @@
+# FoxStorm Typescript WEB Framework
+
 <p align="center">
   <img src="https://i.imgur.com/2EmQNvF.png" alt="FoxStorm Typescript WEB Framework" width="190" />
 </p>
@@ -6,13 +8,14 @@ FoxStorm is a TypeScript Framework that provides a foundation for building your 
 
 ## Getting Started
 
-* Installation (WIP)
+* Installation
 * Routing
 * Controllers
 * Presenters
 * Decorators
 * Models
 * Services
+* Mail
 * Logger
 
 ## Installation
@@ -189,7 +192,7 @@ presenter does not know what properties your `object` has.
 
 Example of presenters:
 
-_UserPresenter.ts_
+** _UserPresenter.ts_
 
 ```typescript
 import { BasePresenter } from 'foxstorm'
@@ -206,11 +209,11 @@ export class UserPresenter extends BasePresenter {
     return `${this.firstName} ${this.lastName}`
   }
 }
-````
+```
 
 Using the presenter in the controller:
 
-_UsersController.ts_
+** _UsersController.ts_
 
 ```typescript
 import { UserPresenter } from '../../presenters/UserPresenter'
@@ -225,14 +228,15 @@ export class UsersController {
     return res.send(presentedUser)
   }
 }
-````
+```
 
 ## Decorators
 
 The `Decorators` pattern works in exactly the same way as the `Presenters`, but instead keeping view / presenting logic
 they keep business logic.
 
-_UserWorkDecorator.ts_
+** _UserWorkDecorator.ts_
+
 ```typescript
 import { BaseDecorator } from 'foxstorm'
 
@@ -249,11 +253,12 @@ export class UserWorkDecorator extends BaseDecorator {
     // logic code
   }
 }
-````
+```
 
 Using the decorator in the controller:
 
-_UsersController.ts_
+** _UsersController.ts_
+
 ```typescript
 import { UserWorkDecorator } from '../../decorators/UserWorkDecorator'
 import { UserPresenter } from '../../presenters/UserPresenter'
@@ -269,8 +274,26 @@ export class UsersController {
     return res.send({ success: `${presentedUser.fullName()} started working!`})
   }
 }
-````
+```
 
 ## Services
+
+--
+
+## Mail
+
+Using views:
+
+```typescript
+  class OrderShipped implements Mailable extends Mailer {
+    constructor (readonly user: User) {
+      super()
+    }
+
+    buildMessage () {
+      this.render('emails/orderShipped', { user: this.user })
+    }
+  }
+```
 
 ## Logger
